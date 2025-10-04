@@ -479,4 +479,185 @@ function createCompetitorCard(comp) {
                 <div class="competitor-logo">${comp.logo}</div>
                 <div class="competitor-info">
                     <h3 class="competitor-name">${comp.name}</h3>
-                    <a href="${comp.website}" class="competitor-website" target="_blank" rel="no
+                    <a href="${comp.website}" class="competitor-website" target="_blank"                     rel="noopener noreferrer">${comp.website.replace(/^https?:\/\//, '')}</a>
+                </div>
+            </div>
+
+            <div class="competitor-stats">
+                <p><strong>Followers:</strong> ${totalFollowers.toLocaleString()}</p>
+                <p><strong>Monthly Traffic:</strong> ${trafficM}M</p>
+                <p><strong>Industry:</strong> ${comp.industry.join(', ')}</p>
+            </div>
+
+            <div class="competitor-updates">
+                <p><strong>Latest Update:</strong> ${comp.updates[0]?.title || 'N/A'}</p>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Open competitor modal
+ */
+function openCompetitorModal(id) {
+    const comp = appState.competitors.find(c => c.id === id);
+    if (!comp) return;
+
+    const modal = document.getElementById('competitorModal');
+    modal.style.display = 'flex';
+
+    document.getElementById('modalLogo').textContent = comp.logo;
+    document.getElementById('modalName').textContent = comp.name;
+    document.getElementById('modalWebsite').href = comp.website;
+    document.getElementById('modalWebsiteText').textContent = comp.website.replace(/^https?:\/\//, '');
+
+    const modalContent = document.getElementById('modalContent');
+    modalContent.innerHTML = `
+        <p><strong>Industry:</strong> ${comp.industry.join(', ')}</p>
+        <p><strong>Followers:</strong> ${comp.social.linkedin + comp.social.twitter + comp.social.facebook}</p>
+        <p><strong>Monthly Traffic:</strong> ${(comp.traffic.monthly / 1000000).toFixed(1)}M</p>
+        <p><strong>Technologies:</strong> ${comp.technologies.join(', ')}</p>
+        <h4>Recent Updates:</h4>
+        <ul>
+            ${comp.updates.map(u => `<li><strong>${u.date}:</strong> ${u.title} (${u.type})</li>`).join('')}
+        </ul>
+    `;
+}
+
+/**
+ * Close modal
+ */
+function closeModal(event) {
+    if (!event || event.target.classList.contains('modal-overlay')) {
+        const modal = document.getElementById('competitorModal');
+        modal.style.display = 'none';
+    }
+}
+
+/**
+ * Render charts
+ */
+function renderCharts() {
+    const filtered = getFilteredCompetitors();
+
+    // Follower comparison chart
+    const ctxFollowers = document.getElementById('followerChart').getContext('2d');
+    const followerChartData = {
+        labels: filtered.map(c => c.name),
+        datasets: [{
+            label: 'Total Followers',
+            data: filtered.map(c => c.social.linkedin + c.social.twitter + c.social.facebook),
+            backgroundColor: '#4e79a7'
+        }]
+    };
+
+    if (window.followerChartInstance) window.followerChartInstance.destroy();
+    window.followerChartInstance = new Chart(ctxFollowers, {
+        type: 'bar',
+        data: followerChartData,
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } }
+        }
+    });
+
+    // Growth trend chart (line)
+    const ctxGrowth = document.getElementById('growthTrendChart')?.getContext('2d');
+    if (ctxGrowth) {
+        const growthData = {
+            labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+            datasets: filtered.map(c => ({
+                label: c.name,
+                data: [50,60,70,80,90,100].map(v => Math.floor(Math.random()*1000 + v*10)),
+                borderColor: getRandomColor(),
+                fill: false
+            }))
+        };
+        if (window.growthChartInstance) window.growthChartInstance.destroy();
+        window.growthChartInstance = new Chart(ctxGrowth, {
+            type: 'line',
+            data: growthData,
+            options: { responsive: true }
+        });
+    }
+}
+
+/**
+ * Render updates/news section
+ */
+function renderUpdates() {
+    const updatesContainer = document.getElementById('newsList');
+    let updates = [];
+    appState.competitors.forEach(comp => {
+        comp.updates.forEach(u => updates.push({ ...u, competitor: comp.name }));
+    });
+
+    // Apply update type filter
+    if (appState.filterUpdateType !== 'all') {
+        updates = updates.filter(u => u.type === appState.filterUpdateType);
+    }
+
+    // Sort by date descending
+    updates.sort((a,b) => new Date(b.date) - new Date(a.date));
+
+    if (updates.length === 0) {
+        updatesContainer.innerHTML = '<li>No updates found.</li>';
+        return;
+    }
+
+    updatesContainer.innerHTML = updates.map(u => `
+        <li>
+            <strong>${u.competitor}:</strong> ${u.title} <em>(${u.type}, ${u.date})</em>
+        </li>
+    `).join('');
+}
+
+/**
+ * Utility: check valid URL
+ */
+function isValidUrl(string) {
+    try {
+        new URL(string);
+        return true;
+    } catch (_) {
+        return false;
+    }
+}
+
+/**
+ * Simulated fetch competitor data (dummy)
+ */
+async function fetchCompetitorData(url) {
+    // Use data.json mapping
+    try {
+        const response = await fetch('data.json');
+        const data = await response.json();
+        const comp = data.competitors.find(c => c.website === url || c.website === url.replace(/\/$/, ''));
+        if (!comp) return { success: false, error: 'No data found for this URL.' };
+        return { success: true, data: { ...comp, id: data.competitors.indexOf(comp) } };
+    } catch (err) {
+        console.error(err);
+        return { success: false, error: 'Error fetching data.' };
+    }
+}
+
+/**
+ * Utility: generate random color
+ */
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i=0; i<6; i++) color += letters[Math.floor(Math.random()*16)];
+    return color;
+}
+
+/**
+ * Initialize database (dummy)
+ */
+async function initializeDatabase() {
+    // This can later be replaced with real API/database calls
+    console.log('Initializing database...');
+}
+
+// Initialize app on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initApp);
