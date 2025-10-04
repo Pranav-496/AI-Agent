@@ -1,0 +1,26 @@
+[
+    {
+        "name": "TechFlow AI",
+        "followers": 245000,
+        "latestUpdate": "Launched AI-powered analytics dashboard with real-time insights and predictive modeling capabilities",
+        "pricingChange": "Introduced new Enterprise tier at $299/month with unlimited API calls"
+    },
+    {
+        "name": "CloudSync Pro",
+        "followers": 182000,
+        "latestUpdate": "Released mobile app v3.0 with offline sync and biometric authentication",
+        "pricingChange": "Reduced Starter plan from $49 to $39/month, added 14-day free trial"
+    },
+    {
+        "name": "DataVault Systems",
+        "followers": 156000,
+        "latestUpdate": "Announced SOC 2 Type II compliance and expanded European data center presence",
+        "pricingChange": "New pay-as-you-go storage option: $0.15/GB/month with no minimum commitment"
+    },
+    {
+        "name": "InnovateHub",
+        "followers": 98000,
+        "latestUpdate": "Integrated with Slack, Microsoft Teams, and Zoom for seamless collaboration",
+        "pricingChange": "Launched student/education discount: 50% off all plans with .edu email verification"
+    }
+]
