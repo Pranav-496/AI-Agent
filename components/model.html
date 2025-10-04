@@ -1,0 +1,119 @@
+<!-- Modal Template for Competitor Details -->
+<div class="modal-overlay" id="competitorModal" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <div class="modal-header-content">
+                <div class="modal-logo" id="modalLogo">🚀</div>
+                <div>
+                    <h2 class="modal-title" id="modalName">Competitor Name</h2>
+                    <a href="#" class="modal-website" id="modalWebsite" target="_blank" rel="noopener noreferrer">
+                        <i data-lucide="globe"></i>
+                        <span id="modalWebsiteText">website.com</span>
+                        <i data-lucide="external-link" style="width: 0.875rem; height: 0.875rem;"></i>
+                    </a>
+                </div>
+            </div>
+            <button class="modal-close" onclick="closeModal()">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <!-- Key Metrics Section -->
+            <div class="modal-section">
+                <div class="metrics-row">
+                    <div class="modal-metric-box">
+                        <p class="modal-metric-label">LinkedIn</p>
+                        <p class="modal-metric-value" id="modalLinkedin" style="color: #0077b5;">0</p>
+                    </div>
+                    <div class="modal-metric-box">
+                        <p class="modal-metric-label">Twitter</p>
+                        <p class="modal-metric-value" id="modalTwitter" style="color: #1da1f2;">0</p>
+                    </div>
+                    <div class="modal-metric-box">
+                        <p class="modal-metric-label">Facebook</p>
+                        <p class="modal-metric-value" id="modalFacebook" style="color: #4267B2;">0</p>
+                    </div>
+                    <div class="modal-metric-box">
+                        <p class="modal-metric-label">Market Share</p>
+                        <p class="modal-metric-value" id="modalMarketShare" style="color: #8b5cf6;">0%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest Launch Section -->
+            <div class="modal-section">
+                <h3>Latest Product Launch</h3>
+                <div class="launch-box">
+                    <div class="launch-icon">🚀</div>
+                    <p class="launch-product" id="modalLaunchProduct">Product Name</p>
+                    <p class="launch-description" id="modalLaunchDescription">Description</p>
+                    <p class="launch-date" id="modalLaunchDate">Launched: 2025-01-01</p>
+                </div>
+            </div>
+
+            <!-- Pricing Information Section -->
+            <div class="modal-section">
+                <h3>Pricing Information</h3>
+                <div class="modal-metric-box" style="padding: 1.5rem;">
+                    <div class="pricing-grid">
+                        <div class="pricing-item">
+                            <p class="pricing-label">Current Price</p>
+                            <p class="pricing-value" id="modalPriceCurrent">$0/month</p>
+                        </div>
+                        <div class="pricing-item">
+                            <p class="pricing-label">Previous Price</p>
+                            <p class="pricing-value" id="modalPricePrevious" style="color: var(--text-secondary);">$0/month</p>
+                        </div>
+                        <div class="pricing-item">
+                            <p class="pricing-label">Change</p>
+                            <p class="pricing-change" id="modalPriceChange">0%</p>
+                        </div>
+                    </div>
+                    <p class="launch-date" id="modalPriceDate" style="text-align: center; margin-top: 1rem;">Last updated: 2025-01-01</p>
+                </div>
+            </div>
+
+            <!-- Traffic Information Section -->
+            <div class="modal-section">
+                <h3>Traffic & Growth</h3>
+                <div class="metrics-row">
+                    <div class="modal-metric-box">
+                        <p class="modal-metric-label">Monthly Traffic</p>
+                        <p class="modal-metric-value" id="modalTraffic">0</p>
+                    </div>
+                    <div class="modal-metric-box">
+                        <p class="modal-metric-label">Growth Rate</p>
+                        <p class="modal-metric-value" id="modalGrowth" style="color: var(--success-color);">0%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technologies Section -->
+            <div class="modal-section">
+                <h3>Technology Stack</h3>
+                <div class="tech-tags" id="modalTechnologies">
+                    <!-- Technology tags will be dynamically added -->
+                </div>
+            </div>
+
+            <!-- Industries Section -->
+            <div class="modal-section">
+                <h3>Industries</h3>
+                <div class="industry-tags-modal" id="modalIndustries">
+                    <!-- Industry tags will be dynamically added -->
+                </div>
+            </div>
+
+            <!-- All Updates Section -->
+            <div class="modal-section">
+                <h3>All Updates & News</h3>
+                <div class="modal-updates-list" id="modalUpdatesList">
+                    <!-- Updates will be dynamically added -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
