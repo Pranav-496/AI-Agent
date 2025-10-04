@@ -5,60 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competitive Intelligence Tracker</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Chart.js CDN for follower comparison chart -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Chart.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-    <!-- Main Dashboard Container -->
-    <div class="dashboard-container">
-        <!-- Header Section -->
-        <header class="dashboard-header">
-            <h1>🎯 Competitive Intelligence Tracker</h1>
-            <p>Monitor your competitors in real-time</p>
-        </header>
-
-        <!-- Alert/Notification Card for Recent Big Changes -->
-        <div class="notification-card" id="notificationCard">
-            <div class="notification-icon">🔔</div>
-            <div class="notification-content">
-                <h3>Recent Alert</h3>
-                <p id="notificationText">Loading recent changes...</p>
+<body class="light-mode">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <i data-lucide="trending-up" class="logo-icon"></i>
+                    <h1>Competitive Intelligence Tracker</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" id="notificationBtn">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-badge" id="notificationBadge">0</span>
+                    </button>
+                    <button class="icon-btn" id="themeToggle">
+                        <i data-lucide="moon" id="themeIcon"></i>
+                    </button>
+                </div>
             </div>
         </div>
+    </header>
 
-        <!-- Search/Filter Section -->
-        <div class="search-section">
-            <input 
-                type="text" 
-                id="searchInput" 
-                placeholder="🔍 Search competitors by name..." 
-                class="search-input"
-            >
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3>Critical Updates</h3>
+            <button class="close-btn" id="closeNotifications">
+                <i data-lucide="x"></i>
+            </button>
         </div>
-
-        <!-- Competitors Grid -->
-        <div class="competitors-grid" id="competitorsGrid">
-            <!-- Competitor cards will be dynamically inserted here -->
-        </div>
-
-        <!-- Analytics Section -->
-        <div class="analytics-section">
-            <h2>📊 Follower Growth Comparison</h2>
-            <div class="chart-container">
-                <canvas id="followersChart"></canvas>
-            </div>
-        </div>
-
-        <!-- News/Updates Feed Section -->
-        <div class="updates-section">
-            <h2>📰 Latest Updates Feed</h2>
-            <div class="updates-feed" id="updatesFeed">
-                <!-- Updates will be dynamically inserted here -->
-            </div>
+        <div class="notification-list" id="notificationList">
+            <!-- Notifications will be dynamically added here -->
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Input Section -->
+            <section class="input-section card">
+                <h2>Add Competitor</h2>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="urlInput" 
+                        placeholder="Enter competitor website URL (e.g., competitor1.com)"
+                        class="url-input"
+                    >
+                    <button class="btn-primary" id="fetchBtn">Fetch Competitor Data</button>
+                </div>
+                <div class="message" id="messageBox"></div>
+                <div class="hint">
+                    💡 Try these URLs: competitor1.com, competitor2.com, competitor3.com, competitor4.com
+                </div>
+            </section>
+
+            <!-- Search and Filter Controls -->
+            <section class="controls-section card" id="controlsSection" style="display: none;">
+                <div class="controls-grid">
+                    <div class="control-group">
+                        <label>Search</label>
+                        <div class="search-input-wrapper">
+                            <i data-lucide="search" class="search-icon"></i>
+                            <input 
+                                type="text" 
+                                id="searchInput" 
+                                placeholder="Search by name or industry..."
+                                class="control-input"
+                            >
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Filter by Industry</label>
+                        <select id="industryFilter" class="control-input">
+                            <option value="all">All Industries</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Sort By</label>
+                        <select id="sortBy" class="control-input">
+                            <option value="followers">Social Followers</option>
+                            <option value="traffic">Monthly Traffic</option>
+                            <option value="recent">Recent Updates</option>
+                            <option value="name">Name (A-Z)</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Update Type</label>
+                        <select id="updateTypeFilter" class="control-input">
+                            <option value="all">All Updates</option>
+                            <option value="product">Product</option>
+                            <option value="pricing">Pricing</option>
+                            <option value="news">News</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Competitor Cards -->
+            <section class="competitors-grid" id="competitorsGrid">
+                <!-- Competitor cards will be dynamically added here -->
+            </section>
+
+            <!-- Empty State -->
+            <section class="empty-state card" id="emptyState">
+                <i data-lucide="trending-up" class="empty-icon"></i>
+                <h3>No Competitors Tracked Yet</h3>
+                <p>Start by adding a competitor's website URL above to begin tracking their activities.</p>
+                <div class="demo-urls">
+                    <p>Available demo competitors:</p>
+                    <p class="demo-list">competitor1.com • competitor2.com • competitor3.com • competitor4.com</p>
+                </div>
+            </section>
+
+            <!-- Analytics Charts Section -->
+            <section class="charts-section" id="chartsSection" style="display: none;">
+                <div class="charts-grid">
+                    <!-- Follower Comparison Chart -->
+                    <div class="chart-card card">
+                        <h3>Social Media Followers Comparison</h3>
+                        <canvas id="followerChart"></canvas>
+                    </div>
+                    <!-- Market Share Chart -->
+                    <div class="chart-card card">
+                        <h3>Market Share Distribution</h3>
+                        <canvas id="marketShareChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Growth Trend Chart -->
+                <div class="chart-card card" id="growthTrendCard" style="display: none;">
+                    <h3 id="growthTrendTitle">Growth Trends</h3>
+                    <canvas id="growthTrendChart"></canvas>
+                </div>
+            </section>
+
+            <!-- News & Updates Feed -->
+            <section class="updates-section card" id="updatesSection" style="display: none;">
+                <h3>Recent Updates & News</h3>
+                <div class="updates-list" id="updatesList">
+                    <!-- Updates will be dynamically added here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal Container (loaded from modal.html) -->
+    <div id="modalContainer"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Competitive Intelligence Tracker • Built for Startups • Hackathon Ready 🚀</p>
+            <p>Track your competitors' moves in real-time with intelligent insights</p>
+        </div>
+    </footer>
+
+    <!-- Load Scripts -->
+    <script src="utils/fetchData.js"></script>
+    <script src="charts/chartConfig.js"></script>
     <script src="script.js"></script>
+    
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
