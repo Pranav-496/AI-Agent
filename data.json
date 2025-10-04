@@ -1,0 +1,278 @@
+{
+  "competitor1.com": {
+    "id": 1,
+    "name": "TechFlow",
+    "logo": "🚀",
+    "website": "https://techflow.com",
+    "industry": ["SaaS", "Productivity"],
+    "social": {
+      "linkedin": 45000,
+      "twitter": 32000,
+      "facebook": 28000
+    },
+    "latestLaunch": {
+      "product": "AI-Powered Analytics Dashboard",
+      "date": "2025-09-15",
+      "description": "Revolutionary analytics with predictive insights and real-time data processing"
+    },
+    "pricing": {
+      "current": "$49/month",
+      "previous": "$39/month",
+      "change": "+25.6%",
+      "date": "2025-09-01"
+    },
+    "traffic": {
+      "monthly": 2500000,
+      "growth": "+18%"
+    },
+    "technologies": ["React", "Node.js", "PostgreSQL", "AWS", "Redis"],
+    "bigChange": true,
+    "updates": [
+      {
+        "type": "product",
+        "title": "New AI Dashboard Released with Machine Learning Capabilities",
+        "date": "2025-09-15",
+        "priority": "high"
+      },
+      {
+        "type": "pricing",
+        "title": "Price increase to $49/mo - Added premium features",
+        "date": "2025-09-01",
+        "priority": "high"
+      },
+      {
+        "type": "news",
+        "title": "Series B funding announced - $50M led by Sequoia Capital",
+        "date": "2025-08-20",
+        "priority": "medium"
+      },
+      {
+        "type": "product",
+        "title": "Mobile app update v3.2 with offline mode",
+        "date": "2025-08-10",
+        "priority": "low"
+      },
+      {
+        "type": "news",
+        "title": "Expanded team by 50 employees across engineering",
+        "date": "2025-07-25",
+        "priority": "low"
+      }
+    ],
+    "marketShare": 28,
+    "monthlyTrend": [
+      { "month": "Apr", "followers": 38000, "traffic": 2100000 },
+      { "month": "May", "followers": 40000, "traffic": 2200000 },
+      { "month": "Jun", "followers": 42000, "traffic": 2300000 },
+      { "month": "Jul", "followers": 44000, "traffic": 2400000 },
+      { "month": "Aug", "followers": 45000, "traffic": 2500000 }
+    ]
+  },
+  "competitor2.com": {
+    "id": 2,
+    "name": "DataPulse",
+    "logo": "📊",
+    "website": "https://datapulse.com",
+    "industry": ["Analytics", "Business Intelligence"],
+    "social": {
+      "linkedin": 52000,
+      "twitter": 41000,
+      "facebook": 35000
+    },
+    "latestLaunch": {
+      "product": "Real-time Collaboration Suite",
+      "date": "2025-08-28",
+      "description": "Team collaboration features with live editing and shared workspaces"
+    },
+    "pricing": {
+      "current": "$79/month",
+      "previous": "$79/month",
+      "change": "0%",
+      "date": "2025-01-01"
+    },
+    "traffic": {
+      "monthly": 3200000,
+      "growth": "+12%"
+    },
+    "technologies": ["Vue.js", "Python", "MongoDB", "Google Cloud", "Kubernetes"],
+    "bigChange": false,
+    "updates": [
+      {
+        "type": "product",
+        "title": "Collaboration Suite Launch with 15+ new features",
+        "date": "2025-08-28",
+        "priority": "high"
+      },
+      {
+        "type": "news",
+        "title": "Strategic partnership with Microsoft announced",
+        "date": "2025-08-15",
+        "priority": "medium"
+      },
+      {
+        "type": "product",
+        "title": "API v2.0 released with enhanced performance",
+        "date": "2025-07-30",
+        "priority": "medium"
+      },
+      {
+        "type": "news",
+        "title": "Expanded to European market - offices in London and Berlin",
+        "date": "2025-07-10",
+        "priority": "low"
+      },
+      {
+        "type": "product",
+        "title": "New data visualization templates library",
+        "date": "2025-06-28",
+        "priority": "low"
+      }
+    ],
+    "marketShare": 35,
+    "monthlyTrend": [
+      { "month": "Apr", "followers": 48000, "traffic": 2900000 },
+      { "month": "May", "followers": 49000, "traffic": 3000000 },
+      { "month": "Jun", "followers": 50000, "traffic": 3050000 },
+      { "month": "Jul", "followers": 51000, "traffic": 3150000 },
+      { "month": "Aug", "followers": 52000, "traffic": 3200000 }
+    ]
+  },
+  "competitor3.com": {
+    "id": 3,
+    "name": "CloudMetrics",
+    "logo": "☁️",
+    "website": "https://cloudmetrics.com",
+    "industry": ["Cloud", "DevOps"],
+    "social": {
+      "linkedin": 38000,
+      "twitter": 29000,
+      "facebook": 22000
+    },
+    "latestLaunch": {
+      "product": "Infrastructure Monitoring 2.0",
+      "date": "2025-09-20",
+      "description": "Advanced cloud infrastructure monitoring with AI-powered anomaly detection"
+    },
+    "pricing": {
+      "current": "$59/month",
+      "previous": "$69/month",
+      "change": "-14.5%",
+      "date": "2025-09-10"
+    },
+    "traffic": {
+      "monthly": 1800000,
+      "growth": "+25%"
+    },
+    "technologies": ["Angular", "Django", "Redis", "Azure", "Docker"],
+    "bigChange": true,
+    "updates": [
+      {
+        "type": "product",
+        "title": "Infrastructure Monitoring 2.0 released with major improvements",
+        "date": "2025-09-20",
+        "priority": "high"
+      },
+      {
+        "type": "pricing",
+        "title": "Price reduced to $59/mo - Competitive pricing strategy",
+        "date": "2025-09-10",
+        "priority": "high"
+      },
+      {
+        "type": "news",
+        "title": "Won 'Best DevOps Tool 2025' award at TechCrunch Disrupt",
+        "date": "2025-08-25",
+        "priority": "medium"
+      },
+      {
+        "type": "product",
+        "title": "Kubernetes integration added for container orchestration",
+        "date": "2025-08-05",
+        "priority": "medium"
+      },
+      {
+        "type": "news",
+        "title": "Achieved SOC 2 Type II compliance certification",
+        "date": "2025-07-18",
+        "priority": "low"
+      }
+    ],
+    "marketShare": 22,
+    "monthlyTrend": [
+      { "month": "Apr", "followers": 32000, "traffic": 1400000 },
+      { "month": "May", "followers": 34000, "traffic": 1500000 },
+      { "month": "Jun", "followers": 35000, "traffic": 1600000 },
+      { "month": "Jul", "followers": 36500, "traffic": 1700000 },
+      { "month": "Aug", "followers": 38000, "traffic": 1800000 }
+    ]
+  },
+  "competitor4.com": {
+    "id": 4,
+    "name": "InsightEdge",
+    "logo": "💡",
+    "website": "https://insightedge.com",
+    "industry": ["AI", "Machine Learning"],
+    "social": {
+      "linkedin": 29000,
+      "twitter": 24000,
+      "facebook": 18000
+    },
+    "latestLaunch": {
+      "product": "Predictive Analytics Engine",
+      "date": "2025-07-15",
+      "description": "ML-powered predictions for business metrics with 95% accuracy"
+    },
+    "pricing": {
+      "current": "$99/month",
+      "previous": "$89/month",
+      "change": "+11.2%",
+      "date": "2025-08-01"
+    },
+    "traffic": {
+      "monthly": 1500000,
+      "growth": "+8%"
+    },
+    "technologies": ["React", "TensorFlow", "FastAPI", "AWS", "Scikit-learn"],
+    "bigChange": false,
+    "updates": [
+      {
+        "type": "pricing",
+        "title": "Price increase to $99/mo with enterprise features",
+        "date": "2025-08-01",
+        "priority": "medium"
+      },
+      {
+        "type": "product",
+        "title": "Predictive Analytics Engine launched with advanced ML models",
+        "date": "2025-07-15",
+        "priority": "high"
+      },
+      {
+        "type": "news",
+        "title": "Acquired DataViz startup for $12M to enhance visualizations",
+        "date": "2025-07-01",
+        "priority": "medium"
+      },
+      {
+        "type": "product",
+        "title": "Custom model training feature for enterprise clients",
+        "date": "2025-06-20",
+        "priority": "low"
+      },
+      {
+        "type": "news",
+        "title": "Published whitepaper on AI ethics in business analytics",
+        "date": "2025-06-05",
+        "priority": "low"
+      }
+    ],
+    "marketShare": 15,
+    "monthlyTrend": [
+      { "month": "Apr", "followers": 26000, "traffic": 1350000 },
+      { "month": "May", "followers": 27000, "traffic": 1400000 },
+      { "month": "Jun", "followers": 27500, "traffic": 1425000 },
+      { "month": "Jul", "followers": 28500, "traffic": 1475000 },
+      { "month": "Aug", "followers": 29000, "traffic": 1500000 }
+    ]
+  }
+}
