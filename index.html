@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitive Intelligence Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js CDN for follower comparison chart -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <header class="dashboard-header">
+            <h1>🎯 Competitive Intelligence Tracker</h1>
+            <p>Monitor your competitors in real-time</p>
+        </header>
+
+        <!-- Alert/Notification Card for Recent Big Changes -->
+        <div class="notification-card" id="notificationCard">
+            <div class="notification-icon">🔔</div>
+            <div class="notification-content">
+                <h3>Recent Alert</h3>
+                <p id="notificationText">Loading recent changes...</p>
+            </div>
+        </div>
+
+        <!-- Search/Filter Section -->
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="🔍 Search competitors by name..." 
+                class="search-input"
+            >
+        </div>
+
+        <!-- Competitors Grid -->
+        <div class="competitors-grid" id="competitorsGrid">
+            <!-- Competitor cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Analytics Section -->
+        <div class="analytics-section">
+            <h2>📊 Follower Growth Comparison</h2>
+            <div class="chart-container">
+                <canvas id="followersChart"></canvas>
+            </div>
+        </div>
+
+        <!-- News/Updates Feed Section -->
+        <div class="updates-section">
+            <h2>📰 Latest Updates Feed</h2>
+            <div class="updates-feed" id="updatesFeed">
+                <!-- Updates will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
