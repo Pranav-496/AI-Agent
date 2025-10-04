@@ -213,7 +213,7 @@ function isValidUrl(url) {
     }
     
     // Basic URL validation (allows domain.com format)
-    const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    const urlPattern = /^(https?:\/\/)?(www\.)?([\w\d-]+\.)+[\w-]{2,}(\/.*)?$/i;
     return urlPattern.test(url);
 }
 
